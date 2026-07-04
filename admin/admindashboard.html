@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Admin Dashboard">
+    <meta name="author" content="Vijay Mahes">
+    <title>Time Table Admin Dashboard - Static Preview</title>
+    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/sb-admin.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+    <style>
+        .side-nav {
+            top: 51px;
+            width: 225px;
+            border: none;
+            border-radius: 0;
+            overflow-y: auto;
+            background-color: #000 !important;
+            bottom: 0;
+            position: fixed;
+        }
+        .side-nav > li > a {
+            width: 225px;
+            color: #9d9d9d;
+        }
+        .side-nav > li > a:hover, .side-nav > li > a:focus {
+            background-color: #333 !important;
+            color: #fff;
+        }
+        #page-wrapper {
+            padding: 10px;
+            margin-left: 225px;
+        }
+        .navbar-inverse {
+            background-color: #222;
+            border-color: #080808;
+        }
+        .navbar-brand-custom {
+            color: #ff0000 !important;
+            font-size: 20px;
+            padding: 15px;
+            display: inline-block;
+            text-decoration: none;
+        }
+        .logout-link {
+            color: #ffffff;
+            margin-left: 20px;
+            text-decoration: none;
+        }
+        .logout-link:hover {
+            color: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header" style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 0 15px;">
+                <a class="navbar-brand-custom" href="../index.html">Time Table Generator</a>
+                <div style="color: #fff;">
+                    <span>Hello Admin</span>
+                    <a href="index.html" class="logout-link"><i class="fa fa-power-off"></i> Logout</a>
+                </div>
+            </div>
+            
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li>
+                        <a href="javascript:void(0)" onclick="showSection('department')"><i class="fa fa-fw fa-university"></i> Department</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" onclick="showSection('semester')"><i class="fa fa-fw fa-calendar"></i> Semester</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" onclick="showSection('subject')"><i class="fa fa-fw fa-book"></i> Subject</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" onclick="showSection('student')"><i class="fa fa-fw fa-users"></i> Student</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" onclick="showSection('teacher')"><i class="fa fa-fw fa-graduation-cap"></i> Teacher</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" onclick="showSection('timetable')"><i class="fa fa-fw fa-table"></i> Time Table</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div id="page-wrapper">
+            <div class="container-fluid" style="margin-top: 60px;">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="alert alert-info">
+                            <i class="fa fa-info-circle"></i> <strong>Static Preview Mode:</strong> You are viewing a local mockup of the Time Table generator admin panel.
+                        </div>
+                        
+                        <div id="content-area">
+                            <!-- Dynamically loaded content -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+
+    <script>
+        var sections = {
+            department: `
+                <h2>🏫 Department Management</h2>
+                <hr>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Department Name</th>
+                                <th>Code</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>Computer Science & Engineering</td><td>CSE</td></tr>
+                            <tr><td>2</td><td>Mechanical Engineering</td><td>ME</td></tr>
+                            <tr><td>3</td><td>Information Technology</td><td>IT</td></tr>
+                            <tr><td>4</td><td>Electrical & Electronics Engineering</td><td>EEE</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            `,
+            semester: `
+                <h2>📅 Semester Management</h2>
+                <hr>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Semester Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>Semester 1</td></tr>
+                            <tr><td>2</td><td>Semester 2</td></tr>
+                            <tr><td>3</td><td>Semester 3</td></tr>
+                            <tr><td>4</td><td>Semester 4</td></tr>
+                            <tr><td>5</td><td>Semester 5</td></tr>
+                            <tr><td>6</td><td>Semester 6</td></tr>
+                            <tr><td>7</td><td>Semester 7</td></tr>
+                            <tr><td>8</td><td>Semester 8</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            `,
+            subject: `
+                <h2>📚 Subject Directory</h2>
+                <hr>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover table-striped">
+                        <thead>
+                            <tr>
+                                <th>Subject Code</th>
+                                <th>Subject Name</th>
+                                <th>Department</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>CS8501</td><td>Theory of Computation</td><td>CSE</td></tr>
+                            <tr><td>CS8591</td><td>Computer Networks</td><td>CSE</td></tr>
+                            <tr><td>CS8502</td><td>Software Engineering</td><td>CSE</td></tr>
+                            <tr><td>EC8553</td><td>Discrete Time Signal Processing</td><td>EEE</td></tr>
+                            <tr><td>ME8501</td><td>Metrology and Measurements</td><td>ME</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            `,
+            student: `
+                <h2>🎓 Student Directory</h2>
+                <hr>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover table-striped">
+                        <thead>
+                            <tr>
+                                <th>Roll No</th>
+                                <th>Student Name</th>
+                                <th>Email</th>
+                                <th>Department</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>101</td><td>Vijay Mahes</td><td>Vijaypradhap2004@gmail.com</td><td>CSE</td></tr>
+                            <tr><td>102</td><td>Aman Preet</td><td>aman@gmail.com</td><td>IT</td></tr>
+                            <tr><td>103</td><td>Neha Sharma</td><td>neha@gmail.com</td><td>ECE</td></tr>
+                            <tr><td>104</td><td>Rakesh Kumar</td><td>rakesh@gmail.com</td><td>ME</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            `,
+            teacher: `
+                <h2>👩‍🏫 Teacher / Faculty Directory</h2>
+                <hr>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover table-striped">
+                        <thead>
+                            <tr>
+                                <th>Faculty ID</th>
+                                <th>Faculty Name</th>
+                                <th>Email</th>
+                                <th>Specialization</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>T501</td><td>Dr. R. Anitha</td><td>anitha@college.edu</td><td>Algorithms</td></tr>
+                            <tr><td>T502</td><td>Prof. M. Selvam</td><td>selvam@college.edu</td><td>Networks</td></tr>
+                            <tr><td>T503</td><td>Mrs. K. Priya</td><td>priya@college.edu</td><td>Database Systems</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            `,
+            timetable: `
+                <h2>🗓️ Auto-Generated Time Table</h2>
+                <hr>
+                <p>Below is the visual timetable produced by the collision-free scheduling engine.</p>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover table-striped text-center">
+                        <thead>
+                            <tr class="bg-primary">
+                                <th class="text-center">Day</th>
+                                <th class="text-center">09:00 AM - 10:00 AM</th>
+                                <th class="text-center">10:15 AM - 11:15 AM</th>
+                                <th class="text-center">11:30 AM - 12:30 PM</th>
+                                <th class="text-center">01:30 PM - 02:30 PM</th>
+                                <th class="text-center">02:45 PM - 03:45 PM</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><b>Monday</b></td>
+                                <td class="success">Computer Networks<br><small>Prof. M. Selvam</small></td>
+                                <td class="warning">Theory of Computation<br><small>Dr. R. Anitha</small></td>
+                                <td>—</td>
+                                <td class="info">Software Engineering<br><small>Mrs. K. Priya</small></td>
+                                <td class="success">Computer Networks (Lab)<br><small>Prof. Selvam</small></td>
+                            </tr>
+                            <tr>
+                                <td><b>Tuesday</b></td>
+                                <td class="warning">Theory of Computation<br><small>Dr. R. Anitha</small></td>
+                                <td class="info">Software Engineering<br><small>Mrs. K. Priya</small></td>
+                                <td class="success">Computer Networks<br><small>Prof. M. Selvam</small></td>
+                                <td>—</td>
+                                <td>Library Hour</td>
+                            </tr>
+                            <tr>
+                                <td><b>Wednesday</b></td>
+                                <td>—</td>
+                                <td class="success">Computer Networks<br><small>Prof. M. Selvam</small></td>
+                                <td class="warning">Theory of Computation<br><small>Dr. R. Anitha</small></td>
+                                <td class="info">Software Engineering<br><small>Mrs. K. Priya</small></td>
+                                <td>Seminar Slot</td>
+                            </tr>
+                            <tr>
+                                <td><b>Thursday</b></td>
+                                <td class="info">Software Engineering<br><small>Mrs. K. Priya</small></td>
+                                <td>—</td>
+                                <td class="warning">Theory of Computation<br><small>Dr. R. Anitha</small></td>
+                                <td class="success">Computer Networks<br><small>Prof. M. Selvam</small></td>
+                                <td>Placement Training</td>
+                            </tr>
+                            <tr>
+                                <td><b>Friday</b></td>
+                                <td class="success">Computer Networks<br><small>Prof. M. Selvam</small></td>
+                                <td class="warning">Theory of Computation<br><small>Dr. R. Anitha</small></td>
+                                <td class="info">Software Engineering<br><small>Mrs. K. Priya</small></td>
+                                <td>—</td>
+                                <td>Project Work</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            `
+        };
+
+        function showSection(sectionId) {
+            document.getElementById('content-area').innerHTML = sections[sectionId] || sections.department;
+        }
+
+        // Initialize with department section
+        showSection('department');
+    </script>
+</body>
+</html>

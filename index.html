@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<html lang="en">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Automatic Timetable Generator PHP MYSQL">
+    <meta name="author" content="Vijay Mahes">
+
+    <title>Time Table Generator</title>
+    
+    <style>
+	a{margin-left:15px;text-decoration:none; font-size:20px}
+	a:hover{background:#FF0000;color:#FFFFFF;}
+	.carousel-inner > .item > img,
+	.carousel-inner > .item > a > 
+	img { margin:auto;}
+</style>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+
+    <!-- Custom Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="css/animate.min.css" type="text/css">
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/creative.css" type="text/css">
+    <link href="css/owl.carousel.css" rel="stylesheet">
+    <link href="css/owl.theme.css" rel="stylesheet">
+    <link href="css/owl.transitions.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+    <body>
+    
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand"><font color="#FF0000">Time Table Generator PHP MYSQL</font></a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a class="page-scroll" href="#about">About</a></li> 
+      <li><a class="page-scroll" href="#contact">Contact Us</a></li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Login
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="admin/index.html">Admin Login</a></li>
+          <li><a href="staff/index.html">Staff Login</a></li>
+          <li><a href="student/index.html">Student Login</a></li> 
+        </ul>
+      </li> 
+    </ul>
+  </div>
+</nav>
+
+<header>
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h1>Time Table Generator PHP MYSQL</h1>
+                <hr>
+                <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
+            </div>
+        </div>
+    </header>
+
+  <section class="about" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-12 text-center">
+                        <h2 class="section-heading">About Time Table Generator PHP MYSQL</h2>
+                        <hr class="primary">
+                    </div>
+                    
+                    <div class="row mb90">
+                        <div class="col-md-12 text-justify">
+                                <p>Most colleges have a number of different courses and each course has a number of subjects. Now there are limited faculties, each faculty teaching more than one subjects. So now the time table needed to schedule the faculty at provided time slots in such a way that their timings do not overlap and the time table schedule makes best use of all faculty subject demands. We use a genetic algorithm for this purpose. In our Timetable Generation algorithm we propose to utilize a timetable object. This object comprises of Classroom objects and the timetable for every them likewise a fitness score for the timetable. Fitness score relates to the quantity of crashes the timetable has regarding alternate calendars for different classes.
+Classroom object comprises of week objects. Week objects comprise of Days. also Days comprises of Timeslots. Timeslot has an address in which a subject, student gathering going to the address and educator showing the subject is related
+Also further on discussing the imperatives, We have utilized composite configuration design, which make it well extendable to include or uproot as numerous obligations.
+In every obligation class the condition as determined in our inquiry is now checked between two timetable objects. On the off chance that condition is fulfilled i.e there is a crash is available then the score is augmented by one.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+              
+             <section id="contact">
+             <div class="row">
+             <h2 class="section-heading" align="center">Contact Us</h2>
+                        <hr class="primary">
+                <div class="col-lg-offset-2 col-lg-8 text-center">
+                     <h2 class="section-heading"> Let's Get In Touch</h2>
+                        <hr class="primary">
+                    </div>                   
+            <div class="panel panel-warning bg-primary" style="padding:10px 25px; max-width: 600px; margin: 0 auto;">
+                <div id="contactStatus" style="margin-bottom: 10px;"></div>
+                <form id="contactForm" onsubmit="handleContactSubmit(event)">
+                    <div class="row" style="margin-bottom: 10px;">
+                        <input type="text" id="contactName" class="form-control" placeholder="Name" required/>
+                    </div>
+                    <div class="row" style="margin-bottom: 10px;">
+                        <input type="email" id="contactEmail" class="form-control" placeholder="Email" required/>
+                    </div>
+                    <div class="row" style="margin-bottom: 10px;">
+                        <input type="text" id="contactSubject" class="form-control" placeholder="Subject" required/>
+                    </div>
+                    <div class="row" style="margin-bottom: 10px;">
+                        <textarea id="contactMessage" class="form-control" placeholder="Message" style="resize: vertical;max-height: 400px;" required></textarea>
+                    </div>
+                    <div class="row" style="margin-bottom: 10px;">
+                        <input type="submit" value="Send Message" class="btn btn-success" />
+                    </div>
+                </form>
+            </div>
+            </div>
+            </section>
+        </div>
+    </section>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    
+    <script>
+    function handleContactSubmit(e) {
+        e.preventDefault();
+        var name = document.getElementById('contactName').value;
+        var statusDiv = document.getElementById('contactStatus');
+        statusDiv.innerHTML = "<font color='lime'><b>Congrats " + name + ", your message was simulated successfully (Static Mode)!</b></font>";
+        document.getElementById('contactForm').reset();
+    }
+    </script>
+    </body>
+</html>

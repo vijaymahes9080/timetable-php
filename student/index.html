@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link href="../bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Student Login">
+<meta name="author" content="Vijay Mahes">
+
+<title>Student Login - Time Table Generator</title>
+
+<style>
+    a{margin-left:15px;text-decoration:none; font-size:20px}
+    a:hover{background:#FF0000;color:#FFFFFF;}
+    .carousel-inner > .item > img,
+    .carousel-inner > .item > a > 
+    img { margin:auto;}
+</style>
+
+<link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../css/font-awesome.min.css" type="text/css">
+<link rel="stylesheet" href="../css/creative.css" type="text/css">
+<link href="../css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <div class="header-content">
+        <div class="header-content-inner">
+            <div class="row" align="center">
+                <div class="col-md-5" align="center" style="float: none; margin: 0 auto; background: rgba(0,0,0,0.5); padding: 40px; border-radius: 10px;">
+                    <form class="form-signin" onsubmit="handleLogin(event)">
+                        <h1 class="form-signin-heading"><font color="#337ab7" size="+6">Student Login</font></h1>
+                        <p style="color: #aaa; margin-bottom: 20px;">Use any email/password to log in (Static Preview Mode)</p>
+                        
+                        <label for="inputEmail" class="sr-only">Email address</label>
+                        <input type="text" id="inputEmail" class="form-control" placeholder="Email address" required autofocus style="margin-bottom: 10px;"/>
+                        
+                        <label for="inputPassword" class="sr-only">Password</label>
+                        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required style="margin-bottom: 20px;"/>
+                        
+                        <input type="submit" value="Login" class="btn btn-primary btn-block" style="background-color:#09F; font-size: 20px; padding: 10px;"/>
+                        
+                        <h1 style="padding-top:20px"><a href="../index.html"><font color="#0066CC" size="+4">Home</font></a></h1>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<script>
+function handleLogin(e) {
+    e.preventDefault();
+    window.location.href = "studentdashboard.html";
+}
+</script>
+</body>
+</html>

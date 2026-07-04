@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Student Dashboard">
+    <meta name="author" content="Vijay Mahes">
+    <title>Time Table Student Dashboard - Static Preview</title>
+    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/sb-admin.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+    <style>
+        .side-nav {
+            top: 51px;
+            width: 225px;
+            border: none;
+            border-radius: 0;
+            overflow-y: auto;
+            background-color: #000 !important;
+            bottom: 0;
+            position: fixed;
+        }
+        .side-nav > li > a {
+            width: 225px;
+            color: #9d9d9d;
+        }
+        .side-nav > li > a:hover, .side-nav > li > a:focus {
+            background-color: #333 !important;
+            color: #fff;
+        }
+        #page-wrapper {
+            padding: 10px;
+            margin-left: 225px;
+        }
+        .navbar-inverse {
+            background-color: #222;
+            border-color: #080808;
+        }
+        .navbar-brand-custom {
+            color: #ff0000 !important;
+            font-size: 20px;
+            padding: 15px;
+            display: inline-block;
+            text-decoration: none;
+        }
+        .logout-link {
+            color: #ffffff;
+            margin-left: 20px;
+            text-decoration: none;
+        }
+        .logout-link:hover {
+            color: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header" style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 0 15px;">
+                <a class="navbar-brand-custom" href="../index.html">Time Table Generator</a>
+                <div style="color: #fff;">
+                    <span>Hello Student</span>
+                    <a href="index.html" class="logout-link"><i class="fa fa-power-off"></i> Logout</a>
+                </div>
+            </div>
+            
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li style="padding: 15px; text-align: center;">
+                        <i class="fa fa-user-circle fa-5x" style="color: #fff;"></i>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" onclick="showSection('timeschedule')"><i class="fa fa-fw fa-calendar"></i> Time Schedule</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" onclick="showSection('updateprofile')"><i class="fa fa-fw fa-user"></i> Update Profile</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" onclick="showSection('updatepassword')"><i class="fa fa-fw fa-key"></i> Update Password</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div id="page-wrapper">
+            <div class="container-fluid" style="margin-top: 60px;">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="alert alert-info">
+                            <i class="fa fa-info-circle"></i> <strong>Static Preview Mode:</strong> You are viewing a student dashboard mockup.
+                        </div>
+                        
+                        <div id="content-area">
+                            <!-- Dynamically loaded content -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+
+    <script>
+        var sections = {
+            timeschedule: `
+                <h2>🗓️ Your Weekly Timetable</h2>
+                <hr>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover table-striped text-center">
+                        <thead>
+                            <tr class="bg-primary">
+                                <th class="text-center">Day</th>
+                                <th class="text-center">09:00 AM - 10:00 AM</th>
+                                <th class="text-center">10:15 AM - 11:15 AM</th>
+                                <th class="text-center">11:30 AM - 12:30 PM</th>
+                                <th class="text-center">01:30 PM - 02:30 PM</th>
+                                <th class="text-center">02:45 PM - 03:45 PM</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><b>Monday</b></td>
+                                <td class="success">Computer Networks<br><small>Prof. M. Selvam</small></td>
+                                <td class="warning">Theory of Computation<br><small>Dr. R. Anitha</small></td>
+                                <td>—</td>
+                                <td class="info">Software Engineering<br><small>Mrs. K. Priya</small></td>
+                                <td class="success">Computer Networks (Lab)<br><small>Prof. Selvam</small></td>
+                            </tr>
+                            <tr>
+                                <td><b>Tuesday</b></td>
+                                <td class="warning">Theory of Computation<br><small>Dr. R. Anitha</small></td>
+                                <td class="info">Software Engineering<br><small>Mrs. K. Priya</small></td>
+                                <td class="success">Computer Networks<br><small>Prof. M. Selvam</small></td>
+                                <td>—</td>
+                                <td>Library Hour</td>
+                            </tr>
+                            <tr>
+                                <td><b>Wednesday</b></td>
+                                <td>—</td>
+                                <td class="success">Computer Networks<br><small>Prof. M. Selvam</small></td>
+                                <td class="warning">Theory of Computation<br><small>Dr. R. Anitha</small></td>
+                                <td class="info">Software Engineering<br><small>Mrs. K. Priya</small></td>
+                                <td>Seminar Slot</td>
+                            </tr>
+                            <tr>
+                                <td><b>Thursday</b></td>
+                                <td class="info">Software Engineering<br><small>Mrs. K. Priya</small></td>
+                                <td>—</td>
+                                <td class="warning">Theory of Computation<br><small>Dr. R. Anitha</small></td>
+                                <td class="success">Computer Networks<br><small>Prof. M. Selvam</small></td>
+                                <td>Placement Training</td>
+                            </tr>
+                            <tr>
+                                <td><b>Friday</b></td>
+                                <td class="success">Computer Networks<br><small>Prof. M. Selvam</small></td>
+                                <td class="warning">Theory of Computation<br><small>Dr. R. Anitha</small></td>
+                                <td class="info">Software Engineering<br><small>Mrs. K. Priya</small></td>
+                                <td>—</td>
+                                <td>Project Work</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            `,
+            updateprofile: `
+                <h2>👤 Update Profile</h2>
+                <hr>
+                <div class="panel panel-warning bg-primary" style="padding:10px 25px; max-width: 600px; margin: 0 auto; color:#fff;">
+                    <form id="profileForm" onsubmit="alert('Profile changes simulated successfully!');">
+                        <div class="row" style="margin-bottom: 10px;">
+                            <label>Name</label>
+                            <input type="text" class="form-control" value="Vijay Mahes" required/>
+                        </div>
+                        <div class="row" style="margin-bottom: 10px;">
+                            <label>Email</label>
+                            <input type="email" class="form-control" value="Vijaypradhap2004@gmail.com" required/>
+                        </div>
+                        <div class="row" style="margin-bottom: 10px;">
+                            <label>Mobile</label>
+                            <input type="text" class="form-control" value="9876543210"/>
+                        </div>
+                        <div class="row" style="margin-bottom: 10px;">
+                            <label>Address</label>
+                            <input type="text" class="form-control" value="Chennai, India"/>
+                        </div>
+                        <div class="row" style="margin-bottom: 10px;">
+                            <input type="submit" value="Update Profile" class="btn btn-success" />
+                        </div>
+                    </form>
+                </div>
+            `,
+            updatepassword: `
+                <h2>🔑 Update Password</h2>
+                <hr>
+                <div class="panel panel-warning bg-primary" style="padding:10px 25px; max-width: 600px; margin: 0 auto; color:#fff;">
+                    <form id="passwordForm" onsubmit="alert('Password changes simulated successfully!');">
+                        <div class="row" style="margin-bottom: 10px;">
+                            <label>Old Password</label>
+                            <input type="password" class="form-control" required/>
+                        </div>
+                        <div class="row" style="margin-bottom: 10px;">
+                            <label>New Password</label>
+                            <input type="password" class="form-control" required/>
+                        </div>
+                        <div class="row" style="margin-bottom: 10px;">
+                            <label>Confirm Password</label>
+                            <input type="password" class="form-control" required/>
+                        </div>
+                        <div class="row" style="margin-bottom: 10px;">
+                            <input type="submit" value="Update Password" class="btn btn-success" />
+                        </div>
+                    </form>
+                </div>
+            `
+        };
+
+        function showSection(sectionId) {
+            document.getElementById('content-area').innerHTML = sections[sectionId] || sections.timeschedule;
+        }
+
+        // Initialize with timetable
+        showSection('timeschedule');
+    </script>
+</body>
+</html>
